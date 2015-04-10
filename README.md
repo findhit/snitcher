@@ -10,14 +10,14 @@ production ready version and remove this warning.
 
 
 
-# Installation
+## Installation
 
 ```
     npm install --save snitcher
 ```
 
 
-# Usage
+## Usage
 
 Just add snitcher at the beginning of your init js file.
 
@@ -69,13 +69,13 @@ app.use( snitcher.middleware() );
 
 
 
-# Customizable
+## Customizable
 
 At our first release you should be able to set templates for each kind of report.
 
 
 
-# Motivation
+## Motivation
 
 We developed snitcher as an internal mechanism to report errors into our scrum
 management system (we use **GitHub**, but you can create a report for your own) and
