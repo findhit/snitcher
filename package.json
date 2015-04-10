@@ -1,0 +1,44 @@
+{
+  "name": "snitcher",
+  "version": "0.0.1",
+  "description": "spies for errors on node processes and reports to your dev team",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/findhit/snitcher.git"
+  },
+  "keywords": [
+    "snitcher",
+    "reporter",
+    "reports",
+    "report",
+    "error",
+    "uncaught",
+    "process",
+    "nodejs",
+    "node.js",
+    "io.js",
+    "automatic",
+    "robot",
+    "bot",
+    "tpl",
+    "templating",
+    "findhit"
+  ],
+  "author": "José Moreira <jose.moreira@findhit.com>",
+  "license": "GPL v3",
+  "bugs": {
+    "url": "https://github.com/findhit/snitcher/issues"
+  },
+  "homepage": "https://github.com/findhit/snitcher",
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "debug": "^2.1.3",
+    "findhit-class": "^0.1.1",
+    "findhit-util": "^0.2.7",
+    "github": "^0.2.3"
+  }
+}
