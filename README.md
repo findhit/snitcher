@@ -78,5 +78,8 @@ At our first release you should be able to set templates for each kind of report
 ## Motivation
 
 We developed snitcher as an internal mechanism to report errors into our scrum
-management system (we use **GitHub**, but you can create a report for your own) and
-today I deviced to refactor it into an Open-Source module, so, here it is!
+management system. We use **GitHub** :+1:, but if it isn't your case, you could
+create a reporter for your own and PR it! :)
+
+10/Apr/2015 I've decided to give **snitcher** a chance to co-exist into the
+Open-Source world, so here it is!
