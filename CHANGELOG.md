@@ -1,9 +1,8 @@
 ## Upcoming
-- implementations:
+- code refactored from our internal module file
+- new methods implementations:
   - .middleware
   - .catch
-
-## 1.0.0
 
 
 ## 0.0.1
