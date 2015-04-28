@@ -4,7 +4,7 @@
   "description": "spies for errors on node processes and reports to your dev team",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/jshint/bin/jshint . && node_modules/mocha/bin/mocha --globals setImmediate,clearImmediate --check-leaks --colors -t 10000 --reporter spec $(find test/* -name '*.test.js')"
   },
   "repository": {
     "type": "git",
@@ -37,8 +37,14 @@
   "dependencies": {
     "bluebird": "^2.9.24",
     "debug": "^2.1.3",
+    "ect": "^0.5.9",
     "findhit-class": "^0.1.1",
     "findhit-util": "^0.2.7",
     "github": "^0.2.3"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "jshint": "^2.7.0",
+    "mocha": "^2.2.4"
   }
 }
