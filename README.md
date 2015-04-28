@@ -1,4 +1,8 @@
 # snitcher
+
+[![Test Status](http://strider.findhit.com/findhit/snitcher/badge)](http://strider.findhit.com/findhit/snitcher) [![Dependency Status](https://david-dm.org/findhit/snitcher.svg)](https://david-dm.org/findhit/snitcher)
+
+
 spies for errors on node processes and reports to your dev team
 
 
