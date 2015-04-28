@@ -5,15 +5,15 @@ var chai = require( 'chai' ),
 describe( "Snitcher", function () {
 
     describe( "Reporter", function () {
-        var reporter;
-
-        beforeEach(function () {
-            reporter = new Reporter({
-                simulate: true,
-            });
-        });
 
         describe( "check if last is being saved", function () {
+            var reporter;
+
+            beforeEach(function () {
+                reporter = new Reporter({
+                    simulate: true,
+                });
+            });
 
             function test ( method, variable ) {
                 it( "should return latest " + method, function () {
@@ -40,21 +40,20 @@ describe( "Snitcher", function () {
 
         describe( "testing templates rendering", function () {
 
-            function test ( method, template, variable, expected ) {
+            function test ( method, template, templateContext, expected ) {
                 it( "should render " + method + " template as \"" + expected + "\"", function () {
                     var templates = {};
 
-                    templates[ method ] = template;
+                    if ( template ) {
+                        templates[ method ] = template;
+                    }
 
                     var reporter = new Reporter({
                         simulate: true,
                         templates: templates,
                     });
 
-                    console.log( reporter );
-
-                    var result = reporter.render[ method ]( variable );
-
+                    var result = reporter.render[ method ].call( templateContext, {}, {} );
                     expect( result ).to.be.equal( expected );
 
                 });
@@ -80,7 +79,32 @@ describe( "Snitcher", function () {
                     'raw',
                     undefined,
                     { raw: 'test' },
-                    '<pre>"test"<pre>'
+                    '<pre>"test"</pre>'
+                );
+
+            });
+
+            describe( "some other templates", function () {
+
+                test(
+                    'msg',
+                    'tt<%- @msg %>ss',
+                    { msg: 'test' },
+                    'tttestss'
+                );
+
+                test(
+                    'error',
+                    'tt<%- @error.name %>ss',
+                    { error: new Error( 'test' ) },
+                    'ttErrorss'
+                );
+
+                test(
+                    'raw',
+                    '<%- @raw %>',
+                    { raw: 'test' },
+                    'test'
                 );
 
             });

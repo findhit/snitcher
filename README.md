@@ -26,12 +26,13 @@ production ready version and remove this warning.
 Just add snitcher at the beginning of your init js file.
 
 ```js
-var snitcher = require( 'snitcher' )({
-        reporter: 'GitHub',
-
-        // reporter options
-        token: 'XXXXXX',
-        target: 'user/repo',
+var Snitcher = require( 'snitcher' ),
+    snitcher = new Snitcher({
+        reporter: new Snitcher.Reporters.Github({
+            user: 'username',
+            repo: 'repository',
+            token: 'XXX', // non-porn
+        })
     });
 
 // At this point, snitcher should already be watching for uncaught errors and
