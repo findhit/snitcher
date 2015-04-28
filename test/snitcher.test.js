@@ -40,6 +40,7 @@ describe( "Snitcher", function () {
             reporter = new DummyReporter();
             snitcher = new Snitcher({
                 reporter: reporter,
+                handleUncaughtExceptions: false,
             });
         });
 

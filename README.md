@@ -6,12 +6,7 @@
 spies for errors on node processes and reports to your dev team
 
 
-### WARNING:
-#### Work in Progress
-
-Next week i will refactor our internal module into here. ASAP, I will post a
-production ready version and remove this warning.
-
+![screenshot](https://cloud.githubusercontent.com/assets/3604053/7375043/d278127e-edcd-11e4-8344-12c405e04bd1.png)
 
 
 ## Installation
@@ -28,10 +23,12 @@ Just add snitcher at the beginning of your init js file.
 ```js
 var Snitcher = require( 'snitcher' ),
     snitcher = new Snitcher({
-        reporter: new Snitcher.Reporters.Github({
+        // Snitcher options
+        reporter: new Snitcher.Reporter.Github({
+            // GitHub Reporter options
             user: 'username',
             repo: 'repository',
-            token: 'XXX', // non-porn
+            token: '.XXX', // non-porn videos
         })
     });
 
@@ -77,6 +74,26 @@ app.use( snitcher.middleware() );
 ## Customizable
 
 At our first release you should be able to set templates for each kind of report.
+
+
+
+## Testing
+
+```bash
+npm test
+```
+
+If you wish to test reporters such as GitHub, you should expose their configs
+trought ENV variables before running `npm test`.
+
+Example for **GitHub Reporter**:
+
+```bash
+export SNITCHER_GITHUB_USER=cusspvz
+export SNITCHER_GITHUB_REPO=snitcher-reporter-api-test
+export SNITCHER_GITHUB_TOKEN=0123456789abcdef1234567890abcdef12345678
+npm test
+```
 
 
 

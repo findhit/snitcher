@@ -1,6 +1,6 @@
 var //Promise = require( 'bluebird' ),
     Snitcher = require( '../../' ),
-    GitHubReporter = Snitcher.Reporters.GitHub,
+    GitHubReporter = Snitcher.Reporter.GitHub,
 
     chai = require( 'chai' ),
     expect = chai.expect;
@@ -47,25 +47,47 @@ describe( "Snitcher", function () {
 
             });
 
-            
+            var token = process.env.SNITCHER_GITHUB_TOKEN,
+                user = process.env.SNITCHER_GITHUB_USER,
+                repo = process.env.SNITCHER_GITHUB_REPO;
+
+            describe( "testing using env account data", function () {
+                var snitcher;
+
+                beforeEach(function () {
+                    snitcher = new Snitcher({
+                        reporter: new Snitcher.Reporter.GitHub({
+                            token: token || 'simulating',
+                            user: user || 'simulating',
+                            repo: repo || 'simulating',
+                            simulate: ! ( token && user && repo ),
+                        }),
+                        handleUncaughtExceptions: false,
+                    });
+                });
+
+                it( "should publish an issue with a message", function () {
+                    return snitcher.report.msg( 'YOLO' );
+                });
+
+                it( "should publish an issue with an error", function () {
+                    return snitcher.report.error( new Error( 'YOLO' ) );
+                });
+
+                it( "should publish an issue with some raw shit", function () {
+                    return snitcher.report.raw({
+                        hey: 'you',
+                        'why': 'the f*ck',
+                        'are': "you",
+                        reading: 'this',
+                        'number': 0
+                    });
+                });
+
+            });
 
         });
 
     });
 
 });
-
-
-/*
-
-            beforeEach(function () {
-                reporter = new Snicher.Reporter.GitHub({
-                    simulate: true,
-
-                });
-
-                snitcher = new Snitcher({
-                    reporter: reporter,
-                });
-            });
-*/

@@ -40,7 +40,7 @@ describe( "Snitcher", function () {
 
         describe( "testing templates rendering", function () {
 
-            function test ( method, template, templateContext, expected ) {
+            function test ( method, template, context, expected ) {
                 it( "should render " + method + " template as \"" + expected + "\"", function () {
                     var templates = {};
 
@@ -53,8 +53,11 @@ describe( "Snitcher", function () {
                         templates: templates,
                     });
 
-                    var result = reporter.render[ method ].call( templateContext, {}, {} );
-                    expect( result ).to.be.equal( expected );
+                    expect(
+
+                        reporter.render[ method ]( context )
+
+                    ).to.be.equal( expected );
 
                 });
             }
