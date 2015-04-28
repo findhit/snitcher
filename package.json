@@ -1,6 +1,6 @@
 {
   "name": "snitcher",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "spies for errors on node processes and reports to your dev team",
   "main": "index.js",
   "scripts": {
