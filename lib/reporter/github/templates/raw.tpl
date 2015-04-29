@@ -1,9 +1,6 @@
 ### Some RAW-shit was reported :boom:
 
-```
 <%- JSON.stringify @raw %>
-
-```
 
 <% if @reporter.showUpProcessENV : %>
 ### process.env
